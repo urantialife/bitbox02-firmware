@@ -15,18 +15,20 @@
 #ifndef _U2F_DEVICE_H_
 #define _U2F_DEVICE_H_
 
-#include "usb/u2f/u2f.h"
-#include "usb/usb.h"
 #include <stdbool.h>
 #include <stdint.h>
+
+#include <usb/u2f/u2f.h>
+#include <usb/usb.h>
+#include <usb/usb_frame.h>
 
 #define U2F_HIJACK_ORIGIN_TOTAL 4
 
 extern const uint8_t U2F_HIJACK_CODE[U2F_HIJACK_ORIGIN_TOTAL][U2F_APPID_SIZE];
 
-void u2f_send_message(const uint8_t *data, const uint32_t len);
-void u2f_send_err_hid(uint32_t fcid, uint8_t err);
-void u2f_device_run(const USB_FRAME *f);
+//void u2f_send_message(const uint8_t* data, const uint32_t len);
+//void u2f_send_err_hid(uint32_t fcid, uint8_t err);
+//void u2f_device_run(const USB_FRAME* f);
 void u2f_device_timeout(void);
 void u2f_device_setup(void);
 
