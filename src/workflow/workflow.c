@@ -54,7 +54,7 @@ static void _select_orientation_done(bool upside_down)
     if (upside_down) {
         screen_rotate();
     }
-    component_t* show_logo = show_logo_create(workflow_start, 200);
+    component_t* show_logo = show_logo_create(workflow_start, 0);
     ui_screen_stack_switch(show_logo);
 }
 
@@ -69,6 +69,8 @@ void workflow_change_state(workflow_state_t state)
 {
     switch (state) {
     case WORKFLOW_STATE_CHOOSE_ORIENTATION: {
+        _select_orientation_done(false);
+        break;
         component_t* select_orientation = orientation_arrows_create(_select_orientation_done);
         ui_screen_stack_switch(select_orientation);
         break;
